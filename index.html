@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Página Responsiva</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <!-- Cabeçalho com imagem -->
+  <header class="topo">
+    <img src="imagens/022.png" alt="Imagem de cabeçalho">
+  </header>
+
+  <!-- Menu de navegação -->
+  <nav class="menu-navegacao">
+    <ul>
+      <li><a href="pagina1.html">Início</a></li>
+      <li><a href="pagina2.html">Notícias</a></li>
+      <li><a href="pagina3.html">Entreterimento</a></li>
+      
+    
+    </ul>
+  </nav>
+
+  <!-- Seção principal -->
+  <main class="conteudo">
+    <h1>Bem-vindo ao Ocidental Link</h1>
+    <p>"Muito mais que um link: uma ponte para novas possibilidades."</p>
+      
+       <section class="sessao-car">
+  <div class="carousel-container">
+    <div class="carousel-slide" id="carousel">
+      <a href="#link1"><img src="imagens/10.jpg" alt="Imagem 1"></a>
+      <a href="#link2"><img src="imagens/11.jpg" alt="Imagem 2"></a>
+      <a href="#link3"><img src="https://via.placeholder.com/720x350/FF0000/FFFFFF?text=Imagem+3" alt="Imagem 3"></a>
+      <a href="#link4"><img src="https://via.placeholder.com/720x350/FFA500/FFFFFF?text=Imagem+4" alt="Imagem 4"></a>
+      <a href="#link5"><img src="https://via.placeholder.com/720x350/800080/FFFFFF?text=Imagem+5" alt="Imagem 5"></a>
+    </div>
+
+    <button class="carousel-button" id="prevBtn">&#10094;</button>
+    <button class="carousel-button" id="nextBtn">&#10095;</button>
+  </div>
+    </section>
+  <script>
+    const carousel = document.getElementById('carousel');
+    const totalSlides = 5;
+    let currentIndex = 0;
+    let interval;
+
+    function showSlide(index) {
+      carousel.style.transform = `translateX(-${index * 720}px)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      showSlide(currentIndex);
+    }
+
+    function startAutoSlide() {
+      interval = setInterval(nextSlide, 10000); // 10 segundos
+    }
+
+    function stopAutoSlide() {
+      clearInterval(interval);
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
+
+    startAutoSlide();
+  </script>
+ 
+      
+      
+      
+  </main>
+
+   
+</body>
+</html>
